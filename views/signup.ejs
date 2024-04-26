@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="signup-or-in">
+    <section>
+        <form action="/signup" method="post">
+            <h1>Sign Up</h1>
+            <div class="inputbox">
+                <input type="text" id="name" name="name" >
+                <label for="name">Your Name</label>
+            </div>
+            <div class="inputbox">
+                <input type="email" id="email" name="email">
+                <label for="email">Your Email</label>
+            </div> 
+            <div class="inputbox">
+                <input type="password" name="password" id="password" required>
+                <label for="password">Your Password</label>
+            </div>
+           <!-- <div class="inputbox">
+                <input type="password" name="password" id="password" required>
+                <label for="password">Confirm Password</label>
+            </div>  -->
+            <button type="submit" class="submit-btn">Sign Up</button>
+            <div class="register">
+                <p>Already have an account? <a href="/login">Log In</a></p>
+            </div>
+            </form>
+        </section>
+    </body>
+</html>

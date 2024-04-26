@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/style.css">
+    <a class="header" href="#"></a>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <div class="layout">
+        <div class="layout_left-sidebar">
+            <div class="sidebar-menu">
+                <div class="sidebar-menu_item">
+                    <form action="/home" method="post">
+                        <button type="submit" value="quiz" name="quiz" class="submit-btn"><i
+                                class="fa-solid fa-pen-to-square"></i>Take Quiz</button>
+                    </form>
+                </div>
+                <div class="sidebar-menu_item">
+                    <form action="/home" method="post">
+                        <button type="submit" value="chat" name="chat" class="submit-btn"><i
+                                class="fa-solid fa-message"></i>Messages</button>
+                    </form>
+                </div>
+                <div class="sidebar-menu_item">
+                    <form action="/home" method="post">
+                        <button type="submit" value="refresh" name="refresh"><i class="fa-solid fa-arrows-rotate"></i>
+                            Refresh </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="layout_main">
+            <div class="profile-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP-i5liksKo3g85Qz90jpYieJ4J_YGy5S7JQ&s"
+                    class="profile-pic">
+            </div>
+            <div class="username">
+                <%= ACCName %>
+            </div>
+            <div class="bio">
+                <h4>Bio</h4>
+
+                <pre><%= bio %></pre>
+
+                <form action="/home" method="post">
+                    <button type="submit" value="upd_bio" name="upd_bio">Update Bio</button>
+                </form>
+            </div>
+            <h4 class="matches">Matches</h4>
+
+            <div class="matches">
+                <% if (matchList.length===0 || typeof matchList==='undefined' || !matchList) { %>
+                    <!-- If matchList is empty, display a message or a button to take the quiz -->
+                    <p>No matches yet, take the quiz to find your bestie!</p>
+                    <p>If you already took the quiz, press the "refresh" button</p>
+                    <% } else { %>
+                        <div class="match-list">
+
+                            <!-- If matchList is not empty, display the matches -->
+                            <% matchList.forEach(match=> { %>
+                                <div class="match-item">
+                                    <span class="match-first">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP-i5liksKo3g85Qz90jpYieJ4J_YGy5S7JQ&s"
+                                            class="profile-pic-mini">
+                                        <%=match.first %>
+                                    </span>
+
+                                    <span class="match-second">
+                                        <%=match.second %>%
+                                    </span>
+                                </div>
+                                <% }) %>
+                        </div>
+                        <% } %>
+            </div>
+        </div>
+        <div class="layout_right-sidebar-container">
+            <div class="layout_right-sidebar">
+                Friends
+                <div class="friend_list">
+                    <p>You'll make some soon!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
